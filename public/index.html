@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/script.js"></script>
+    <title>Lights Control System</title>
+</head>
+<body>
+<!--Heading-->
+<div class="Heading">
+    Light Control System
+</div>
+<div class="subtitle">
+    <p>
+        Made By Nikhil(@nikhilsarwara)
+    </p>
+    <img alt="github icon" src="images/githubicon.png"/>
+</div>
+
+<!--Buttons Container-->
+<div class="buttons-container">
+<!--    Left Side-->
+    <div class="left-side">
+        <button class="red" id="red">
+            Red
+        </button>
+        <button class="green" id="green">
+            Green
+        </button>
+        <button class="blue" id="blue">
+            Blue
+        </button>
+    </div>
+
+<!--   Right Side -->
+    <div class="right-side">
+        <button class="red">
+            <img src="images/LED_OFF.png" alt="red led"/>
+        </button>
+        <button class="green">
+            <img src="images/LED_OFF.png" alt="green led"/>
+        </button>
+        <button class="blue">
+            <img src="images/LED_OFF.png" alt="blue led"/>
+        </button>
+    </div>
+</div>
+</body>
+<script>
+    // LED ICON CHANGE FUNCTION
+    let colors = ["red", "green", "blue"];
+
+    // Change the LED icon to ON when the button is clicked
+    for (let i = 0; i < colors.length; i++) {
+        let button = document.getElementById(colors[i]);
+        button.addEventListener("click", function() {
+            let image = document.querySelector("." + colors[i] + " img");
+            let isOn = image.src === "http://localhost:3000/images/LED_ON.png";
+            if (isOn) {
+                image.src = "images/LED_OFF.png";
+                handleSubmit(event, colors[i], false);
+            } else {
+                image.src = "images/LED_ON.png";
+                handleSubmit(event, colors[i], true);
+            }
+        });
+    }
+</script>
+</html>
